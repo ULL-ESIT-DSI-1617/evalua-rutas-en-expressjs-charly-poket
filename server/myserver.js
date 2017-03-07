@@ -1,21 +1,23 @@
-var connect = require('connect');
-var http = require('http');
-var app = connect();
-var server = app.listen(8084);
-var server = http.createServer(app);
+var express = require('express')
+var app = express()
+var path = require('path');
+var router = express.Router();
 
+module.exports = router;
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
-app.use('/routes', function (req, res, next) {
+app.use(express.static('public'));
+
+app.get('/', function (req, res) {
+  res.send('Hello World!')
+ // res.render('index', { title: 'Express' });
+})
+var server = app.listen(8084, function () {
+
+  var host = server.address().address
+  var port = server.address().port
+
+  console.log('Example app listening at http://%s:%s', host, port)
 
 })
-
-/*
-app.use('/users/:userId', function userMiddleware(req, res, next) {
-  // req.url starts with "/foo"
-  next();
-});
-app.use('/users/:userId', function userinfoMiddleware(req, res, next) {
-  // req.url starts with "/bar"
-  next();
-});
-*/
