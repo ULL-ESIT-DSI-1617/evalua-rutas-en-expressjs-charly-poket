@@ -1,0 +1,16 @@
+{
+  "name": "express_server",
+  "version": "0.0.0",
+  "description": "",
+  "main": "myserver.js",
+  "dependencies": {
+    "express": "*",
+    "ejs": "*"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node package.json"
+  },
+  "author": "",
+  "license": "GPL"
+}
